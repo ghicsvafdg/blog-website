@@ -17,7 +17,7 @@ class NewsController extends Controller
     public function index()
     {
         $news=News::all();
-        return NewsResource::collection($news);
+        return view ('news',compact('news'));
     }
 
     /**
@@ -51,7 +51,7 @@ class NewsController extends Controller
     {
         $news = News::find($id);
         
-        return $news;
+        return view ('detail',compact('news'));
     }
 
     /**

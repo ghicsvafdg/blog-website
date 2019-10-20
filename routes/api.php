@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('news','NewsController@index');
 
-Route::get('news/{id}', 'NewsController@show');
+Route::get('detail-news/{id}', 'NewsController@show');
 
 Route::put('news/{id}', 'NewsController@update');
 
