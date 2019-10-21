@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\News;
-use App\Http\Controllers\Controller;
+    use App\Http\Controllers\Controller;
 use App\Http\Resources\News as NewsResource;
 
 class NewsController extends Controller
@@ -14,10 +14,13 @@ class NewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     //return list of all news
     public function index()
     {
-        $news=News::all();
-        return view ('news',compact('news'));
+        $news = News::all();
+        return $news;
+        // return view ('news',compact('news'));
     }
 
     /**
@@ -26,6 +29,8 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     //create a news
     public function store(Request $request)
     {
         News::create([
@@ -33,11 +38,11 @@ class NewsController extends Controller
             'short_intro'=> $request->short_intro,
             'content'=> $request->content,
             'author'=> $request->author,
+            'file_name'=>$request->file_name,
             'tag'=> $request->tag,
             'comment'=>$request->comment,
             'related_articles'=>$request->related_articles
         ]);
-
         return News::all();
     }
 
@@ -47,11 +52,24 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //return the detail of a news
     public function show($id)
     {
         $news = News::find($id);
-        
-        return view ('detail',compact('news'));
+            // return all comment of a news
+                // $comment = $news->comments;
+                // return $comment;
+        // return view ('detail',compact('news'));
+       
+        return $news;
+    }
+
+    //return list comment of a news
+    public function listComments($id){
+        $news = News::find($id);
+        $comment = $news->comments;
+        return $comment;
     }
 
     /**
@@ -61,14 +79,17 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //update detail of a news
     public function update(Request $request, $id)
     {
         $news = News::find($id);
         $news->title = $request->input('title');
         $news->short_intro = $request->input('short_intro');
+        $news->short_intro = $request->input('file_name');
         $news->content = $request->input('content');
         $news->author= $request->input('author');
-        $news->comment= $request->input('comment');
+        // $news->comment= $request->input('comment');
         $news->tag = $request->input('tag');
         $news->related_articles = $request->input('related_articles');
         $news->save();
@@ -82,6 +103,8 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //delete a news
     public function destroy($id)
     {
         $news = News::find($id);

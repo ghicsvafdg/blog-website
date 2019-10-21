@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tags;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-
-class TagsController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,8 @@ class TagsController extends Controller
      */
     public function index()
     {
-        $tag = Tags::all();
-        return $tag;
+        $cate = Categories::all();
+        return $cate;
         // return view ('news',compact('news'));
     }
 
@@ -29,11 +27,11 @@ class TagsController extends Controller
      */
     public function store(Request $request)
     {
-        Tags::create([
-            'tag_name'=> $request->tag_name,
+        Categories::create([
+            'cate_name'=> $request->cate_name,
         ]);
 
-        return Tags::all();
+        return Categories::all();
     }
 
     /**
@@ -44,15 +42,15 @@ class TagsController extends Controller
      */
     public function show($id)
     {
-        $tag = Tags::find($id);
-        return $tag;
+        $cate = Categories::find($id);
+        return $cate;
         // return view ('detail',compact('news'));
     }
 
     public function listNews($id){
-        // $tag = Tags::find($id);
-        // $comment = $tag->comments;
-        // return $comment;
+        $cate = Categories::find($id);
+        $comment = $cate->comments;
+        return $comment;
     }
 
     /**
@@ -64,10 +62,10 @@ class TagsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tag = Tags::find($id);
-        $tag->tag_name = $request->input('tag_name');
-        $tag->save();
-        return Tags::all();
+        $cate = Categories::find($id);
+        $cate->cate_name = $request->input('cate_name');
+        $cate->save();
+        return Categories::all();
 
     }
 
@@ -79,8 +77,8 @@ class TagsController extends Controller
      */
     public function destroy($id)
     {
-        $tag = Tags::find($id);
-        $tag->delete();
-        return Tags::all();
+        $cate = Categories::find($id);
+        $cate->delete();
+        return Categories::all();
     }
 }

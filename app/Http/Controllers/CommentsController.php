@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tags;
 use Illuminate\Http\Request;
+use App\Models\Comments;
 use App\Http\Controllers\Controller;
 
-
-class TagsController extends Controller
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,9 @@ class TagsController extends Controller
      */
     public function index()
     {
-        $tag = Tags::all();
-        return $tag;
+        $cmt=Comments::all();
+        // $new = $cmt->news;
+        return $cmt;
         // return view ('news',compact('news'));
     }
 
@@ -29,11 +29,13 @@ class TagsController extends Controller
      */
     public function store(Request $request)
     {
-        Tags::create([
-            'tag_name'=> $request->tag_name,
+        Comments::create([
+            'username'=> $request->username,
+            'email'=> $request->email,
+            'content'=> $request->content,
         ]);
 
-        return Tags::all();
+        return Comments::all();
     }
 
     /**
@@ -42,17 +44,14 @@ class TagsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
     public function show($id)
     {
-        $tag = Tags::find($id);
-        return $tag;
+        $cmt = Comments::find($id);
+        
+        return $cmt;
         // return view ('detail',compact('news'));
-    }
-
-    public function listNews($id){
-        // $tag = Tags::find($id);
-        // $comment = $tag->comments;
-        // return $comment;
     }
 
     /**
@@ -64,10 +63,6 @@ class TagsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tag = Tags::find($id);
-        $tag->tag_name = $request->input('tag_name');
-        $tag->save();
-        return Tags::all();
 
     }
 
@@ -79,8 +74,8 @@ class TagsController extends Controller
      */
     public function destroy($id)
     {
-        $tag = Tags::find($id);
-        $tag->delete();
-        return Tags::all();
+        $cmt = Comments::find($id);
+        $cmt->delete();
+        return Comments::all();
     }
 }

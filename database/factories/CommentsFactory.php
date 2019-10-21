@@ -2,11 +2,14 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+use App\Models\Comments;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Comments::class, function (Faker $faker) {
     return [
-        //
+        'news_id'=>$faker->numberBetween($min = 1, $max = 2) ,
+        'username'=>$faker->userName,
+        'email'=>$faker->email,
+        'content'=>$faker->text($maxNbChars = 200),
     ];
 });

@@ -2,11 +2,12 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+use App\Models\Categories;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Categories::class, function (Faker $faker) {
     return [
-        //
+        
+        'cate_name'=>$faker->word
     ];
 });
