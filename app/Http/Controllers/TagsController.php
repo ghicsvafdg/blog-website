@@ -3,17 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tags;
+use App\Models\News;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
 class TagsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    //show list of tags
     public function index()
     {
         $tag = Tags::all();
@@ -21,12 +19,8 @@ class TagsController extends Controller
         // return view ('news',compact('news'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
+    // create new tag
     public function store(Request $request)
     {
         Tags::create([
@@ -36,12 +30,7 @@ class TagsController extends Controller
         return Tags::all();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // show detail of a tag
     public function show($id)
     {
         $tag = Tags::find($id);
@@ -49,19 +38,17 @@ class TagsController extends Controller
         // return view ('detail',compact('news'));
     }
 
-    public function listNews($id){
-        // $tag = Tags::find($id);
-        // $comment = $tag->comments;
-        // return $comment;
+
+    // show list news of tag
+    public function listNews($id)
+    {
+        $listNews = Tags::find($id)->news()->get();
+        return $listNews;
+        // return view ('detail',compact('news'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+    //update a tag
     public function update(Request $request, $id)
     {
         $tag = Tags::find($id);
@@ -71,12 +58,7 @@ class TagsController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //delete a tag
     public function destroy($id)
     {
         $tag = Tags::find($id);

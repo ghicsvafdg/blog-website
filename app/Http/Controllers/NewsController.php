@@ -4,82 +4,75 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\News;
-    use App\Http\Controllers\Controller;
+use App\Models\Comments;
+use App\Models\Categories;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\News as NewsResource;
 
 class NewsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
      //return list of all news
     public function index()
     {
         $news = News::all();
-        return $news;
-        // return view ('news',compact('news'));
+        // return $news;
+        return view ('news',compact('news'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
 
      //create a news
     public function store(Request $request)
     {
         News::create([
             'title'=> $request->title,
+            'cate_id'=> $request->cate_id,
             'short_intro'=> $request->short_intro,
             'content'=> $request->content,
             'author'=> $request->author,
             'file_name'=>$request->file_name,
-            'tag'=> $request->tag,
+            'tag_id'=> $request->tag,
             'comment'=>$request->comment,
             'related_articles'=>$request->related_articles
         ]);
         return News::all();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
     //return the detail of a news
     public function show($id)
     {
         $news = News::find($id);
-            // return all comment of a news
-                // $comment = $news->comments;
-                // return $comment;
-        // return view ('detail',compact('news'));
-       
-        return $news;
+        // $comment = News::find($id)->comments()->get();
+        $comment = Comments::all()->where('news_id', $id);
+        // $category = News::find($id)->categories()->get();
+        // $category = $news->category;
+        // return dd($category);
+        // // return $news;
+        return view ('detail',compact('news', 'comment'));
     }
+
+    //show list tags of a news
+    public function tagOfNews($id)
+    {
+        $listTag = News::find($id)->tags()->get();
+           
+        return $listTag;
+    }
+
+    
 
     //return list comment of a news
     public function listComments($id){
-        $news = News::find($id);
-        $comment = $news->comments;
-        return $comment;
+        $comment = News::find($id)->comments()->get();
+        // $comment = $news->comments;
+        // $cmt = Comments::all()->where('news_id', $id);
+        // $content = $cm;
+        // return $cmt;    
+        return view ('detail',compact('comment'));
+        // return $;
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
+    
      //update detail of a news
     public function update(Request $request, $id)
     {
@@ -97,12 +90,7 @@ class NewsController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
 
      //delete a news
     public function destroy($id)

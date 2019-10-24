@@ -16,52 +16,62 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-//news
-Route::get('news','NewsController@index');
 
-Route::get('detail-news/{id}', 'NewsController@show');
+//route for news
+// Route::resources(['news'=>'NewsController']);
 
-Route::get('comment-news/{id}', 'NewsController@listComments');
+        //show list of news
+    Route::get('news','NewsController@index');
+        //show detail of a news
+    Route::get('detail-news/{id}', 'NewsController@show');
+        //show list tags of a news
+    Route::get('tag-news/{id}', 'NewsController@tagOfNews');
+        //show list comment of a news
+    Route::get('comment-news/{id}', 'NewsController@listComments');
+        //update a news
+    Route::put('news/{id}', 'NewsController@update');
+        //create a news
+    Route::post('news', 'NewsController@store');
+        //delete a news
+    Route::delete('news/{id}', 'NewsController@destroy');
 
-Route::put('news/{id}', 'NewsController@update');
 
-Route::post('news', 'NewsController@store');
+//route for comments
+        // show list of comment
+    Route::get('comments','CommentsController@index');
+        //show detail of comment
+    Route::get('detail-comments/{id}', 'CommentsController@show');
+        // update a comment
+    Route::put('comments/{id}', 'CommentsController@update');
+        //create a comment
+    Route::post('comments', 'CommentsController@store');
+        //delete a comment
+    Route::delete('comments/{id}', 'CommentsController@destroy');
 
-Route::delete('news/{id}', 'NewsController@destroy');
+//route for category
+        // show list of category
+    Route::get('categories','CategoriesController@index');
+        // show detail of category
+    Route::get('detail-categories/{id}', 'CategoriesController@show');
+        // show list news of category
+    Route::get('news-categories/{id}', 'CategoriesController@listNews');
+        // update detail of category
+    Route::put('categories/{id}', 'CategoriesController@update');
+        // create a category
+    Route::post('categories', 'CategoriesController@store');
+        // delete a category
+    Route::delete('categories/{id}', 'CategoriesController@destroy');
 
-//comments
-Route::get('comments','CommentsController@index');
-
-Route::get('detail-comments/{id}', 'CommentsController@show');
-
-Route::put('comments/{id}', 'CommentsController@update');
-
-Route::post('comments', 'CommentsController@store');
-
-Route::delete('comments/{id}', 'CommentsController@destroy');
-
-//Category
-Route::get('categories','CategoriesController@index');
-
-Route::get('detail-categories/{id}', 'CategoriesController@show');
-
-Route::get('news-categories/{id}', 'CategoriesController@listNews');
-
-Route::put('categories/{id}', 'CategoriesController@update');
-
-Route::post('categories', 'CategoriesController@store');
-
-Route::delete('categories/{id}', 'CategoriesController@destroy');
-
-//tag
-Route::get('tags','TagsController@index');
-
-Route::get('detail-tags/{id}', 'TagsController@show');
-
-// Route::get('news-categories/{id}', 'TagsController@listNews');
-
-Route::put('tags/{id}', 'TagsController@update');
-
-Route::post('tags', 'TagsController@store');
-
-Route::delete('tags/{id}', 'TagsController@destroy');
+//route for tag
+        //show list of tag
+    Route::get('tags','TagsController@index');
+        // show detail of a tag
+    Route::get('detail-tags/{id}', 'TagsController@show');
+        // show list news of tag
+    Route::get('list-news/{id}', 'TagsController@listNews');
+        // update a tag
+    Route::put('tags/{id}', 'TagsController@update');
+        // create a tag
+    Route::post('tags', 'TagsController@store');
+        // delete a tag
+    Route::delete('tags/{id}', 'TagsController@destroy');

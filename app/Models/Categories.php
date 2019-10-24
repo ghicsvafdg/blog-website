@@ -14,6 +14,6 @@ class Categories extends Model
     protected $hidden = ['created_at', 'updated_at'];
 
     public function news(){
-        return $this->hasMany('App\Models\News');
+        return $this->hasMany('App\Models\News','cate_id','id');
     }
 }

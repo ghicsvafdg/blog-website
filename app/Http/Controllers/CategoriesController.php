@@ -7,11 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 class CategoriesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    //show list of categories
     public function index()
     {
         $cate = Categories::all();
@@ -19,12 +16,7 @@ class CategoriesController extends Controller
         // return view ('news',compact('news'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    //create a new categories
     public function store(Request $request)
     {
         Categories::create([
@@ -34,12 +26,7 @@ class CategoriesController extends Controller
         return Categories::all();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //show detail of a categories
     public function show($id)
     {
         $cate = Categories::find($id);
@@ -47,19 +34,16 @@ class CategoriesController extends Controller
         // return view ('detail',compact('news'));
     }
 
+
+    // show list news of a categories
     public function listNews($id){
-        $cate = Categories::find($id);
-        $comment = $cate->comments;
-        return $comment;
+        $cate = Categories::find($id)->news()->get();
+        
+        return $cate;
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
+    //update a categories
     public function update(Request $request, $id)
     {
         $cate = Categories::find($id);
@@ -69,12 +53,7 @@ class CategoriesController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // delete a categories
     public function destroy($id)
     {
         $cate = Categories::find($id);

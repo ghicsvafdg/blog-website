@@ -8,37 +8,16 @@
                 
             </div>
             <div class="col-8">
-                <h5>>>Category</h5>
-                <h1>Title of the news</h1>
-                <b>Author, data created</b><br>
-                tag1, tag2, tag3
+                {{-- <h5>{{$category->cate_name}}</h5> --}}
+                <h1>{{$news->title}}</h1>
+                <b>{{$news->author}}, {{$news->created_at}}</b>
+                <br>
+                {{$news->tag}}
                 <hr>
-                <strong>short desc</strong>
+                <strong>{{$news->short_intro}}</strong>
                 <p>
                     <pre>
-                        content here
-                        content here
-                        content here
-                        content here
-                        
-                        content here
-                        content here
-                        content here
-                        content here
-                        
-                        content here
-                        content here
-                        
-                        content here
-                        content here
-                        content here
-                        content herecontent herecontent here
-                        content here
-                        content here
-                        content here
-                        content here
-                        content here
-                        content here
+                        {{$news->content}}
                         
                     </pre>    
                 </p>
@@ -54,48 +33,20 @@
                         </button>
                     </form>
                     <br>
+                    @foreach($comment as $comment)
                     <table>
+                        
                         <tr>
-                            <td><b>user 1</b>:</td>
-                            <td><i>date time</i></td>
+                            <td><b>{{$comment->username}}</b>:</td>
+                            <td><i>{{$comment->created_at}}</i></td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td>this post is nice</td>
+                            <td>{{$comment->content}}</td>
                         </tr>
-                        <tr>
-                            <td><b>user 1</b>:</td>
-                            <td><i>date time</i></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>this post is nice</td>
-                        </tr>
-                        <tr>
-                            <td><b>user 1</b>:</td>
-                            <td><i>date time</i></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>this post is nice</td>
-                        </tr>
-                        <tr>
-                            <td><b>user 1</b>:</td>
-                            <td><i>date time</i></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>this post is nice</td>
-                        </tr>
-                        <tr>
-                            <td><b>user 1</b>:</td>
-                            <td><i>date time</i></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>this post is nice</td>
-                        </tr>
+                        <hr>
                     </table>
+                    @endforeach
                 </div>
                 {{-- end comment --}}
                 <hr>

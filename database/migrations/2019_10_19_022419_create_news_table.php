@@ -16,7 +16,7 @@ class CreateNewsTable extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->bigIncrements('id');
             
-            $table->unsignedBigInteger('cate_id')->default(1)->nullable();
+            $table->unsignedBigInteger('cate_id');
             $table->foreign('cate_id')->references('id')->on('categories')->onDelete('cascade');
 
             $table->text('title');
@@ -24,7 +24,8 @@ class CreateNewsTable extends Migration
             $table->string('file_name');
             $table->mediumText('content');
             $table->string('author');
-            $table->string('tag');
+            $table->unsignedBigInteger('tag_id');
+            $table->foreign('tag_id')->references('id')->on('tags');
             // $table->string('comment');
             $table->string('related_articles');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));

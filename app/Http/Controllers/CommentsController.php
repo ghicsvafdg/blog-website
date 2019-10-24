@@ -50,8 +50,8 @@ class CommentsController extends Controller
     {
         $cmt = Comments::find($id);
         
-        return $cmt;
-        // return view ('detail',compact('news'));
+        // return $cmt;
+        // return view ('detail',compact('cmt'));
     }
 
     /**
@@ -63,7 +63,7 @@ class CommentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        
     }
 
     /**

@@ -8,13 +8,13 @@ use Faker\Generator as Faker;
 $factory->define(News::class, function (Faker $faker) {
     return [
         'title'=>$faker->sentence($nbWords = 6, $variableNbWords = true),
-        'cate_id'=>$faker->numberBetween($min = 1, $max = 2) ,
+        'cate_id'=>$faker->numberBetween($min = 1, $max = 10) ,
         'short_intro'=>$faker->paragraph($nbSentences = 2, $variableNbSentences = true),
         'file_name'=>$faker->imageUrl($width = 640, $height = 480),
         'content'=>$faker->text,
         'author'=>$faker->name,
         'related_articles'=>$faker->sentence($nbWords = 6, $variableNbWords = true),
-        'tag'=>$faker->word,
+        'tag_id'=>$faker->numberBetween($min = 1, $max = 10) ,
         // 'comment'=>$faker->text,
         // 'related'=>$faker->sentence($nbWords = 6, $variableNbWords = true),
     ];

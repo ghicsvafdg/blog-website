@@ -19,6 +19,17 @@ class CreateTagsTable extends Migration
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
+
+        // Schema::create('news_tag', function(Blueprint $table)
+        // {
+        //     $table->unsignedBigInteger('news_id');
+        //     $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
+ 
+        //     $table->unsignedBigInteger('tag_id');
+        //     $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+ 
+        //     $table->timestamps();
+        // });
     }
 
     /**
