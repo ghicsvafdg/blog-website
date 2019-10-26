@@ -3,7 +3,7 @@
 {{-- content homepage --}}
 <div class="container-fluid bd-content">
     <div class="row">
-        <h2 style="margin:auto">AIW-BLOG</h2>
+        <h2 style="margin:auto">NEWS BY TAGS</h2>
     </div>
     <hr>
     <div class="row">
@@ -62,7 +62,7 @@
                         </div> --}}
                         <div class="col row">
                             <div class="col-12">
-                               
+                               {{-- {{$new->title}} --}}
                                 <a href="{{route('detail-news', $new->id)}}"> {{$new->title}} </a>                  
                             </div>
                             {{-- <div class="col-12">
@@ -153,7 +153,7 @@
             <br>
             
             {{-- random category --}} 
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col">
                     <div class="card">
                         <h2>Cate 1</h2>
@@ -187,7 +187,7 @@
                         title news 3
                     </div> 
                 </div>
-            </div>
+            </div> --}}
             {{-- end random category --}}
         </div>
         {{-- end news --}}

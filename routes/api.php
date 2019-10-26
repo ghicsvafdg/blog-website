@@ -21,9 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Route::resources(['news'=>'NewsController']);
 
         //show list of news
-    Route::get('news','NewsController@index');
+    Route::get('news','NewsController@index')->name('news');
         //show detail of a news
-    Route::get('detail-news/{id}', 'NewsController@show');
+    Route::get('detail-news/{id}', 'NewsController@show')->name('detail-news');
         //show list tags of a news
     Route::get('tag-news/{id}', 'NewsController@tagOfNews');
         //show list comment of a news
@@ -34,6 +34,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::post('news', 'NewsController@store');
         //delete a news
     Route::delete('news/{id}', 'NewsController@destroy');
+
+    
 
 
 //route for comments
@@ -50,11 +52,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //route for category
         // show list of category
-    Route::get('categories','CategoriesController@index');
+    Route::get('categories','CategoriesController@index')->name('category');
         // show detail of category
     Route::get('detail-categories/{id}', 'CategoriesController@show');
         // show list news of category
-    Route::get('news-categories/{id}', 'CategoriesController@listNews');
+    Route::get('news-categories/{id}', 'CategoriesController@listNews')->name('news-categories');
         // update detail of category
     Route::put('categories/{id}', 'CategoriesController@update');
         // create a category
@@ -68,7 +70,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         // show detail of a tag
     Route::get('detail-tags/{id}', 'TagsController@show');
         // show list news of tag
-    Route::get('list-news/{id}', 'TagsController@listNews');
+    Route::get('list-news/{id}', 'TagsController@listNews')->name('news-tags');
         // update a tag
     Route::put('tags/{id}', 'TagsController@update');
         // create a tag

@@ -3,17 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\Tags;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\News;
+
 class CategoriesController extends Controller
 {
     
     //show list of categories
     public function index()
     {
-        $cate = Categories::all();
-        return $cate;
-        // return view ('news',compact('news'));
+        $category = Categories::all();
+
+        // return dd($category);
+        return view ('layouts.app',compact('category'));
     }
 
     //create a new categories
@@ -37,9 +41,14 @@ class CategoriesController extends Controller
 
     // show list news of a categories
     public function listNews($id){
-        $cate = Categories::find($id)->news()->get();
-        
-        return $cate;
+        // $category = Categories::find($id)->news()->get();
+        $category = Categories::find($id)->id;
+        $cate1 = Categories::all();
+        $tag1 = Tags::all();
+        // return dd($tag);
+        $news = News::all()->where('cate_id', $category);
+        // return dd($news);
+        return view('newsByCate', compact('cate1', 'category', 'news', 'tag1'));
     }
 
    

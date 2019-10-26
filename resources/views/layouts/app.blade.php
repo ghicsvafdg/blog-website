@@ -28,32 +28,43 @@
             <ul class="navbar-nav mr-auto">
                 
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{route('news')}}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active ">
+                <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Categories
                     </a>
+                    
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @foreach($cate1 as $cate2)
+                        <a class="dropdown-item" href="{{route('news-categories', $cate2->id)}}">{{$cate2->cate_name}}</a>
+                        @endforeach
+                        
+                    </div>
                 </li>
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Tags
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        @foreach($tag1 as $tag2)
+                        
+                        <a class="dropdown-item" href="{{route('news-tags', $tag2->id)}}">{{$tag2->tag_name}}</a>
+                        @endforeach
                     </div>
                 </li>
-                {{-- <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li> --}}
+                
             </ul>
-            {{-- <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form> --}}
+            
+        </div>
+        
+        <div class="" style="margin-right:20px">
+            <a href="" class="btn btn-success btn-small">
+                <span class="btn-label">
+                    <i class="fa fa-plus"></i>
+                </span>
+                Add new blog
+            </a>
         </div>
     </nav>
     {{-- end navbar --}}
