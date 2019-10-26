@@ -59,12 +59,38 @@
         </div>
         
         <div class="" style="margin-right:20px">
-            <a href="" class="btn btn-success btn-small">
-                <span class="btn-label">
-                    <i class="fa fa-plus"></i>
-                </span>
-                Add new blog
-            </a>
+        {{-- <form action="{{route('create')}}" method="get"> --}}
+            <a href="{{route('create')}}" class="btn btn-success btn-small">
+                    <span class="btn-label">
+                        <i class="fa fa-plus"></i>
+                    </span>
+                    Add new blog
+                </a>
+            {{-- </form> --}}
+            
+            {{-- <form action="{{route('create-news')}}" method="post"> --}}
+                        
+                        
+                    {{-- <div class="card-body login"> --}}
+                        {{-- <div class="form-group">
+                            <label  class="placeholder"><b>News ID:</b></label>
+                            <input  type="text" name="news_id"  placeholder="enter nickname" class="form-control " display=false required value="{{$news->id}}" readonly >
+                        </div>
+                        <div class="form-group">
+                            <label  class="placeholder"><b>Nickname:</b></label>
+                            <input  type="text" name="username"  placeholder="enter nickname" class="form-control " required >
+                        </div>
+                        <div class="form-group">
+                            <label  class="placeholder"><b>Type comment here:</b></label>
+                            <textarea name="content" required class="form-control" placeholder="Comment here"></textarea>
+                            <br>
+                        </div> --}}
+                        
+                        {{-- <button type="submit" class="btn btn-success">
+                            Add new blog
+                        </button>  --}}
+                    {{-- </div> --}}
+                {{-- </form> --}}
         </div>
     </nav>
     {{-- end navbar --}}

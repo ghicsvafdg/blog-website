@@ -76,79 +76,7 @@
                     <hr>
                 </div>
                 @endforeach
-                {{-- <div class="col">
-                    <div class="row">
-                        <div class="col-3">
-                            image here
-                        </div>
-                        <div class="col row">
-                            <div class="col-12">
-                                title here                     
-                            </div>
-                            <div class="col-12">
-                                category here
-                            </div>
-                            <div class="col-12">
-                                short desc
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col-3">
-                            image here
-                        </div>
-                        <div class="col row">
-                            <div class="col-12">
-                                title here                     
-                            </div>
-                            <div class="col-12">
-                                category here
-                            </div>
-                            <div class="col-12">
-                                short desc
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col-3">
-                            image here
-                        </div>
-                        <div class="col row">
-                            <div class="col-12">
-                                title here                     
-                            </div>
-                            <div class="col-12">
-                                category here
-                            </div>
-                            <div class="col-12">
-                                short desc
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col-3">
-                            image here
-                        </div>
-                        <div class="col row">
-                            <div class="col-12">
-                                title here                     
-                            </div>
-                            <div class="col-12">
-                                category here
-                            </div>
-                            <div class="col-12">
-                                short desc
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-            </div>
+               
             {{-- end random news --}}
             <br>
             
@@ -194,23 +122,7 @@
         
         {{-- tag --}}
         <div class="col-2, witdh: 220px" style="margin-right: 20px">
-            {{-- <div class="card">
-                <div class="card-header">
-                    <strong> News Tags</strong>
-                </div>
-                <div class="card-body" style="font-size:12px">
-                    Name of Tag
-                </div>
-                <div class="card-body" style="font-size:12px">
-                    Name of Tag
-                </div>
-                <div class="card-body" style="font-size:12px">
-                    Name of Tag
-                </div>
-                <div class="card-body" style="font-size:12px">
-                    Name of Tag
-                </div>
-            </div> --}}
+            
         </div>
         {{-- end tag --}}
     </div>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Comments;
 use App\Http\Controllers\Controller;
+use App\Models\Categories;
+use App\Models\News;
 
 class CommentsController extends Controller
 {
@@ -30,12 +32,13 @@ class CommentsController extends Controller
     public function store(Request $request)
     {
         Comments::create([
+            'news_id'=>$request->news_id,
             'username'=> $request->username,
-            'email'=> $request->email,
             'content'=> $request->content,
         ]);
-
-        return Comments::all();
+        
+        $news_id = $request->news_id;
+        return redirect()->route('detail-news', $news_id);
     }
 
     /**

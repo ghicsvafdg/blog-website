@@ -21,13 +21,13 @@ class CreateNewsTable extends Migration
 
             $table->text('title');
             $table->mediumText('short_intro')->nullable();
-            $table->string('file_name');
+            $table->string('file_name')->nullable();
             $table->mediumText('content');
             $table->string('author');
             $table->unsignedBigInteger('tag_id');
             $table->foreign('tag_id')->references('id')->on('tags');
             // $table->string('comment');
-            $table->string('related_articles');
+            // $table->string('related_articles');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });

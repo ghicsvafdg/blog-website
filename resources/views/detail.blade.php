@@ -5,44 +5,52 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-1">
-                
             </div>
             <div class="col-10">
                 {{-- <h5>{{$category->cate_name}}</h5> --}}
                 <h1>{{$news->title}}</h1>
                 <b>Author: </b>{{$news->author}}
-                <p></p> 
+                <p>
+                </p> 
                 <b>Posted on:</b> {{$news->created_at}}
-                <p></p>
-                {{-- <h2>Tag: </h2> --}}
-                {{-- Tag: --}}
-                {{-- @foreach($tag as $tag)
-                <a href=""> #{{$tag->tag_name}}</a>
-                @endforeach --}}
-                {{-- <h6>Category: <a href="">{{$categories}}</a> </h6> --}}
+                <p>
+                </p>
+                
                 <hr>
                 <h5><strong>{{$news->short_intro}}</strong></h5>
                 <br>
                 <p>
                     {{$news->content}}
                 </p>
-                <p style="text-align:center"><b>END OF BLOG (^-^) </b></p>
+                
+                <p style="text-align:center"><b>END OF BLOG (^-^) </b>
+                </p>
                 <hr>
                 <br>
-                {{-- <hr> --}}
-                {{-- comment --}}
+                
                 <div>
-                    
-                    <form action="">
-                        <h6>Enter username:</h6>
-                        <input type="text" placeholder="enter name or email first" name="info"  class="form-control" required>
-                        <br>
-                        <h6>Type your comment here:</h6>
-                        <textarea name="comment" required class="form-control" placeholder="Comment here"></textarea>
-                        <br>
-                        <button type="submit" class="btn btn-primary">
-                            comment
-                        </button>
+                    <form action="{{route('create-comment')}}" method="post">
+                        
+                        
+                        <div class="card-body login">
+                            <div class="form-group">
+                                <label  class="placeholder"><b>News ID:</b></label>
+                                <input  type="text" name="news_id"  placeholder="enter nickname" class="form-control " display=false required value="{{$news->id}}" readonly >
+                            </div>
+                            <div class="form-group">
+                                <label  class="placeholder"><b>Nickname:</b></label>
+                                <input  type="text" name="username"  placeholder="enter nickname" class="form-control " required >
+                            </div>
+                            <div class="form-group">
+                                <label  class="placeholder"><b>Type comment here:</b></label>
+                                <textarea name="content" required class="form-control" placeholder="Comment here"></textarea>
+                                <br>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">
+                                Comment
+                            </button> 
+                        </div>
                     </form>
                     <br>
                     <h4><b> Comment: </b></h4>
@@ -84,51 +92,6 @@
                 
                 {{-- end Related news --}}
             </div>
-            {{-- <div class="col">
-                <h2>
-                    latest news
-                </h2>
-                <div class="row">
-                    <div class="col-12">
-                        image news
-                    </div>
-                    <div class="col-12">
-                        title news
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        image news
-                    </div>
-                    <div class="col-12">
-                        title news
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        image news
-                    </div>
-                    <div class="col-12">
-                        title news
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        image news
-                    </div>
-                    <div class="col-12">
-                        title news
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        image news
-                    </div>
-                    <div class="col-12">
-                        title news
-                    </div>
-                </div>
-            </div> --}}
         </div>
         
         

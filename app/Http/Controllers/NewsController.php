@@ -34,14 +34,20 @@ class NewsController extends Controller
             'content'=> $request->content,
             'author'=> $request->author,
             'file_name'=>$request->file_name,
-            'tag_id'=> $request->tag,
+            'tag_id'=> $request->tag_id,
             'comment'=>$request->comment,
-            'related_articles'=>$request->related_articles,
+            // 'related_articles'=>$request->related_articles,
             
             ]);
-            return News::all();
+            return redirect()->route('news');
         }
         
+        public function create(){
+            $cate1 = Categories::all('id', 'cate_name');
+            $tag1 = Tags::all();
+            // return dd($cate1);
+            return view('createNews', compact('cate1', 'tag1'));
+        }
         
         //return the detail of a news
         public function show($id)
@@ -52,7 +58,7 @@ class NewsController extends Controller
 
             $cate1 = Categories::all();
             $tag1 = Tags::all();
-
+             
             $comment = Comments::all()->where('news_id', $id);
             
             
@@ -64,7 +70,7 @@ class NewsController extends Controller
             $tags =News::find($id)->tags()->get();
             
             $cat = $news->cate_id;
-            
+
             $categories = Categories::find($cat)->cate_name;
             
             return view ('detail',compact('news', 'comment', 'categories','tags', 'relate_news', 'cate1', 'tag1'));

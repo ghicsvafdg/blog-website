@@ -13,7 +13,7 @@ $factory->define(News::class, function (Faker $faker) {
         'file_name'=>$faker->imageUrl($width = 640, $height = 480),
         'content'=>$faker->paragraph($nbSentences = 100, $variableNbSentences = true),
         'author'=>$faker->name,
-        'related_articles'=>$faker->sentence($nbWords = 6, $variableNbWords = true),
+        // 'related_articles'=>$faker->sentence($nbWords = 6, $variableNbWords = true),
         'tag_id'=>$faker->numberBetween($min = 1, $max = 10) ,
         // 'comment'=>$faker->text,
         // 'related'=>$faker->sentence($nbWords = 6, $variableNbWords = true),

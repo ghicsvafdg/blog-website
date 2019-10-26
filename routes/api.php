@@ -31,9 +31,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         //update a news
     Route::put('news/{id}', 'NewsController@update');
         //create a news
-    Route::post('news', 'NewsController@store');
+    Route::post('news', 'NewsController@store')->name('create-news');
         //delete a news
     Route::delete('news/{id}', 'NewsController@destroy');
+
+    Route::get('create', 'NewsController@create')->name('create');
 
     
 
@@ -46,7 +48,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         // update a comment
     Route::put('comments/{id}', 'CommentsController@update');
         //create a comment
-    Route::post('comments', 'CommentsController@store');
+    Route::post('comments', 'CommentsController@store')->name('create-comment');
         //delete a comment
     Route::delete('comments/{id}', 'CommentsController@destroy');
 

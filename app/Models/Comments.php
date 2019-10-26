@@ -8,7 +8,7 @@ class Comments extends Model
 {
     protected $table = 'comments';
 
-    protected $fillable = ['username', 'email', 'content'];
+    protected $fillable = ['news_id','username', 'content'];
 
     protected $hidden = ['created_at', 'updated_at'];
 

@@ -8,7 +8,7 @@ class News extends Model
 {
     protected $table = 'news';
 
-    protected $fillable = ['title', 'short_intro', 'file_name', 'content', 'author', 'tag_id',  'related_articles', 'cate_id' ];
+    protected $fillable = ['title', 'short_intro', 'file_name', 'content', 'author', 'tag_id',  'cate_id' ];
 
     protected $hidden = ['created_at', 'updated_at'];
 
