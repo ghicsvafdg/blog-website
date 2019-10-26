@@ -81,7 +81,7 @@
             <br>
             
             {{-- random category --}} 
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col">
                     <div class="card">
                         <h2>Cate 1</h2>
@@ -115,7 +115,7 @@
                         title news 3
                     </div> 
                 </div>
-            </div>
+            </div> --}}
             {{-- end random category --}}
         </div>
         {{-- end news --}}

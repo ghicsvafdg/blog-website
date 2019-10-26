@@ -16,7 +16,7 @@
                 <div class="card-body login">
                     <div class="form-group">
                         <label  class="placeholder"><b>Title:</b></label>
-                        <input  type="text" name="title"  placeholder="enter nickname" class="form-control " required value="">
+                        <input  type="text" name="title"  placeholder="Title of this blog" class="form-control " display=false required value="">
                     </div>
                     
                     <div class="form-group">
@@ -40,23 +40,23 @@
                     
                     <div class="form-group">
                         <label  class="placeholder"><b>Short-intro:</b></label>
-                        <textarea name="short_intro" required class="form-control" placeholder="Comment here"></textarea>
+                        <textarea name="short_intro" required class="form-control" placeholder="Short intro of this blog"></textarea>
                         {{-- <br> --}}
                     </div>
                     
                     <div class="form-group">
                         <label  class="placeholder"><b>Content:</b></label>
-                        <textarea name="content" required class="form-control" placeholder="Comment here"></textarea>
+                        <textarea name="content" required class="form-control" placeholder="Content of this blog"></textarea>
                     </div>
                     
                     <div class="form-group">
                         <label  class="placeholder"><b>Author:</b></label>
-                        <input  type="text" name="author"  placeholder="enter nickname" class="form-control " display=false required value="">
+                        <input  type="text" name="author"  placeholder="Name of author" class="form-control " display=false required value="">
                     </div>
                     
                     
                     <button type="submit" class="btn btn-primary">
-                        Comment
+                        Add new blog
                     </button> 
                 </div>
             </form>
