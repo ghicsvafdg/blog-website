@@ -16,7 +16,7 @@
                 <p></p>
                 {{-- <h2>Tag: </h2> --}}
                 Tag:
-                @foreach($tags as $tag)
+                @foreach($tag1 as $tag)
                 <a href="{{route('news-tags', $tag->id)}}"> #{{$tag->tag_name}}</a>
                 @endforeach
                 <h6>Category: <a href="{{route('news-categories', $tag->id)}}">{{$categories}}</a> </h6>

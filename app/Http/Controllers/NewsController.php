@@ -58,8 +58,8 @@ class NewsController extends Controller
             
             $relate_news = News::all()->where('cate_id', $cate_id);
             
-            $cate = Categories::all();
-            $tag = Tags::all()->pluck('tag_name');
+            // $cate = Categories::all();
+            $tag = Tags::all();
             
             $tags =News::find($id)->tags()->get();
             
