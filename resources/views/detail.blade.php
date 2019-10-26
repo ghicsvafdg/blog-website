@@ -15,11 +15,11 @@
                 <b>Posted on:</b> {{$news->created_at}}
                 <p></p>
                 {{-- <h2>Tag: </h2> --}}
-                Tag:
-                @foreach($tag1 as $tag)
-                <a href="{{route('news-tags', $tag->id)}}"> #{{$tag->tag_name}}</a>
-                @endforeach
-                <h6>Category: <a href="{{route('news-categories', $tag->id)}}">{{$categories}}</a> </h6>
+                {{-- Tag: --}}
+                {{-- @foreach($tag as $tag)
+                <a href=""> #{{$tag->tag_name}}</a>
+                @endforeach --}}
+                {{-- <h6>Category: <a href="">{{$categories}}</a> </h6> --}}
                 <hr>
                 <h5><strong>{{$news->short_intro}}</strong></h5>
                 <br>
