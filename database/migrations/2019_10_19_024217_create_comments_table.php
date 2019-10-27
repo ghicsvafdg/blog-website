@@ -20,7 +20,6 @@ class CreateCommentsTable extends Migration
             $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
             
             $table->string('username');
-            // $table->string('email');
             $table->string('content');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));

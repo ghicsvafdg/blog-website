@@ -15,7 +15,6 @@ class CreateNewsTagTable extends Migration
     {
         Schema::create('news_tag', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // $table->unsignedBigInteger('cate_id')
             $table->unsignedBigInteger('news_id');
             $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
 

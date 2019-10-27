@@ -80,47 +80,19 @@
                     </span>
                     Manage Tag
                 </a>
-                {{-- </form> --}}
-                
-                {{-- <form action="{{route('create-news')}}" method="post"> --}}
-                    
-                    
-                    {{-- <div class="card-body login"> --}}
-                        {{-- <div class="form-group">
-                            <label  class="placeholder"><b>News ID:</b></label>
-                            <input  type="text" name="news_id"  placeholder="enter nickname" class="form-control " display=false required value="{{$news->id}}" readonly >
-                        </div>
-                        <div class="form-group">
-                            <label  class="placeholder"><b>Nickname:</b></label>
-                            <input  type="text" name="username"  placeholder="enter nickname" class="form-control " required >
-                        </div>
-                        <div class="form-group">
-                            <label  class="placeholder"><b>Type comment here:</b></label>
-                            <textarea name="content" required class="form-control" placeholder="Comment here"></textarea>
-                            <br>
-                        </div> --}}
-                        
-                        {{-- <button type="submit" class="btn btn-success">
-                            Add new blog
-                        </button>  --}}
-                        {{-- </div> --}}
-                        {{-- </form> --}}
-                    </div>
-                </nav>
-                {{-- end navbar --}}
-                <br>
-                @yield('content')
-                <br>
-                {{-- footer --}}
-                <footer>
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">A product of VCL team</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </footer>
-                {{-- end footer --}}
-            </body>
-            </html>
+            </div>
+        </nav>
+        <br>
+        @yield('content')
+        <br>
+        <footer>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">A product of VCL team</h5>
+                    <p class="card-text">Hope your enjoy when reading blog in our page (/^-^)/</p>
+                    <a href="#" class="btn btn-primary">Go to the top of page</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+    </html>

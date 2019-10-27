@@ -5,6 +5,8 @@
         <h2 style="margin:auto">CREATE NEW CATEGORY</h2>
     </div>
     <hr>
+
+    {{-- edit --}}
     <div class="row">
         <div class="col-1">
             

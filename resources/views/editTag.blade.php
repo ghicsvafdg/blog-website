@@ -11,20 +11,20 @@
         </div>
         
         <div class="col-10">
-                @foreach($tag1 as $tag)
-        <form action="{{route('update-tag', $tag->id)}}" method="post">
-                    @method('patch')
-                    
-                    <div class="card-body login">
-                        <div class="form-group">
-                            <label  class="placeholder"><b>Tag name:</b></label>
+            @foreach($tag1 as $tag)
+            <form action="{{route('update-tag', $tag->id)}}" method="post">
+                @method('patch')
+                
+                <div class="card-body login">
+                    <div class="form-group">
+                        <label  class="placeholder"><b>Tag name:</b></label>
                         
                         <input  type="text" name="tag_name"   class="form-control " display=false required value="{{$tag->tag_name}}">
                         
                     </div>
                     
-                    <a href="" class="btn btn-danger">Cancel</a>
-                    <button type="submit" class="btn btn-primary">
+                <a href="{{route('tag')}}" class="btn btn-danger">Cancel</a>
+                    <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure to save the change?')">
                         Save change
                     </button> 
                 </div>

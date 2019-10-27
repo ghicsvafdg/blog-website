@@ -61,7 +61,7 @@
                     </div>
                     
                     <a href="{{route('news')}}" class="btn btn-danger">Cancel</a>
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure to save the change?')">
                         Save change
                     </button> 
                 </div>

@@ -38,7 +38,7 @@
                     </div>
                     
                     <div class="col row">
-                        <form action="{{route('delete-cate', $cate->id)}}" method ="post">
+                        <form action="{{route('delete-cate', $cate->id)}}" method ="post"onclick=" return confirm('Are you sure to delete?')">
                             @method('delete')
                             <button type="hidden" class="btn btn-primary">
                                 Delete

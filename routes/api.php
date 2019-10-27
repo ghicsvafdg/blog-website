@@ -47,11 +47,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         //show detail of comment
     Route::get('detail-comments/{id}', 'CommentsController@show');
         // update a comment
-    Route::put('comments/{id}', 'CommentsController@update');
+    Route::patch('comments/{id}', 'CommentsController@update')->name('update-comment');
         //create a comment
     Route::post('comments', 'CommentsController@store')->name('create-comment');
         //delete a comment
-    Route::delete('comments/{id}', 'CommentsController@destroy');
+    Route::delete('comments/{id}', 'CommentsController@destroy')->name('delete-comment');
+
+    Route::get('edit-comment/{id}', 'CommentsController@edit')->name('edit-comment');
 
 
 //route for category

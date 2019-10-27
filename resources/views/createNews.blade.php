@@ -54,7 +54,7 @@
                         <input  type="text" name="author"  placeholder="Name of author" class="form-control " display=false required value="">
                     </div>
                     
-                    
+                    <a href="{{route('news')}}" class="btn btn-danger">Cancel</a>
                     <button type="submit" class="btn btn-primary">
                         Add new blog
                     </button> 

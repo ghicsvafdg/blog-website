@@ -7,7 +7,6 @@
             <div class="col-1">
             </div>
             <div class="col-10">
-                {{-- <h5>{{$category->cate_name}}</h5> --}}
                 <h1>{{$news->title}}</h1>
                 <b>Author: </b>{{$news->author}}
                 <p>
@@ -56,15 +55,42 @@
                     <h4><b> Comment: </b></h4>
                     @foreach($comment as $comment)
                     <table>
+                        <div class="row">
+                            <tr>
+                                <td><b>{{$comment->username}}:&nbsp; </b></td>
+                                <td><i>{{$comment->created_at}}</i></td>
+                                <td>
+                                    <form style="margin-left: 0px" action="{{route('edit-comment', $comment->id)}}" method="get">
+                                        {{-- @method('delete') --}}
+                                        <button type="hidden" class="btn btn-primary btn-sm">
+                                            Edit
+                                        </button> 
+                                    </form>
+                                </td>
+                                <td>
+                                    <form style="margin-left: 10px" action="{{route('delete-comment', $comment->id)}}" onclick="return confirm('Are you sure to delete?')" method="post">
+                                        @method('delete')
+                                        <button type="hidden" class="btn btn-primary btn-sm">
+                                            Delete
+                                        </button> 
+                                    </form>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>{{$comment->content}}</td>
+                                
+                            </tr>
+                            
+                        </div> 
                         
-                        <tr>
-                            <td><b>{{$comment->username}}:&nbsp; </b></td>
-                            <td><i>{{$comment->created_at}}</i></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>{{$comment->content}}</td>
-                        </tr>
+                        {{-- <div class="row" >
+                            <tr>
+                                
+                            </tr>
+                            
+                        </div> --}}
                         <hr>
                     </table>
                     @endforeach
@@ -83,7 +109,6 @@
                                 <a href="{{route('detail-news', $relate->id)}}">{{$relate->title}}</a> 
                             </div>
                             <div class="col-12">
-                                {{-- {{$relate->title}} --}}
                             </div>
                             @endforeach
                         </div>
