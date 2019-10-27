@@ -59,18 +59,32 @@
         </div>
         
         <div class="" style="margin-right:20px">
-        {{-- <form action="{{route('create')}}" method="get"> --}}
-            <a href="{{route('create')}}" class="btn btn-success btn-small">
+            {{-- <form action="{{route('create')}}" method="get"> --}}
+                <a href="{{route('create')}}" class="btn btn-success btn-small">
                     <span class="btn-label">
                         <i class="fa fa-plus"></i>
                     </span>
                     Add new blog
                 </a>
-            {{-- </form> --}}
-            
-            {{-- <form action="{{route('create-news')}}" method="post"> --}}
-                        
-                        
+                
+                <a href="{{route('category')}}" class="btn btn-success btn-small">
+                    <span class="btn-label">
+                        <i class="fa fa-plus"></i>
+                    </span>
+                    Manage Category
+                </a>
+                
+                <a href="{{route('tag')}}" class="btn btn-success btn-small">
+                    <span class="btn-label">
+                        <i class="fa fa-plus"></i>
+                    </span>
+                    Manage Tag
+                </a>
+                {{-- </form> --}}
+                
+                {{-- <form action="{{route('create-news')}}" method="post"> --}}
+                    
+                    
                     {{-- <div class="card-body login"> --}}
                         {{-- <div class="form-group">
                             <label  class="placeholder"><b>News ID:</b></label>
@@ -89,24 +103,24 @@
                         {{-- <button type="submit" class="btn btn-success">
                             Add new blog
                         </button>  --}}
-                    {{-- </div> --}}
-                {{-- </form> --}}
-        </div>
-    </nav>
-    {{-- end navbar --}}
-    <br>
-    @yield('content')
-    <br>
-    {{-- footer --}}
-    <footer>
-        <div class="card text-center">
-            <div class="card-body">
-                <h5 class="card-title">A product of VCL team</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </footer>
-    {{-- end footer --}}
-</body>
-</html>
+                        {{-- </div> --}}
+                        {{-- </form> --}}
+                    </div>
+                </nav>
+                {{-- end navbar --}}
+                <br>
+                @yield('content')
+                <br>
+                {{-- footer --}}
+                <footer>
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">A product of VCL team</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </footer>
+                {{-- end footer --}}
+            </body>
+            </html>

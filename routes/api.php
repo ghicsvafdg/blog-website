@@ -18,7 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //route for news
-// Route::resources(['news'=>'NewsController']);
 
         //show list of news
     Route::get('news','NewsController@index')->name('news');
@@ -29,13 +28,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         //show list comment of a news
     Route::get('comment-news/{id}', 'NewsController@listComments');
         //update a news
-    Route::put('news/{id}', 'NewsController@update');
+    Route::get('edit/{id}', 'NewsController@edit')->name('edit');
         //create a news
     Route::post('news', 'NewsController@store')->name('create-news');
         //delete a news
-    Route::delete('news/{id}', 'NewsController@destroy');
+    Route::delete('delete-news/{id}', 'NewsController@destroy')->name('delete');
 
     Route::get('create', 'NewsController@create')->name('create');
+
+    Route::patch('update/{id}', 'NewsController@update')->name('update');
 
     
 
@@ -52,6 +53,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         //delete a comment
     Route::delete('comments/{id}', 'CommentsController@destroy');
 
+
 //route for category
         // show list of category
     Route::get('categories','CategoriesController@index')->name('category');
@@ -60,22 +62,33 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         // show list news of category
     Route::get('news-categories/{id}', 'CategoriesController@listNews')->name('news-categories');
         // update detail of category
-    Route::put('categories/{id}', 'CategoriesController@update');
+    Route::patch('categories/{id}', 'CategoriesController@update')->name('update-category');
         // create a category
-    Route::post('categories', 'CategoriesController@store');
+    Route::post('categories', 'CategoriesController@store')->name('create-new-category');
         // delete a category
-    Route::delete('categories/{id}', 'CategoriesController@destroy');
+    Route::delete('categories/{id}', 'CategoriesController@destroy')->name('delete-cate');
+
+    Route::get('edit-categories/{id}', 'CategoriesController@edit')->name('edit-category');
+
+    Route::get('create-category', 'CategoriesController@create')->name('create-category');
+    
 
 //route for tag
         //show list of tag
-    Route::get('tags','TagsController@index');
+    Route::get('tags','TagsController@index')->name('tag');
         // show detail of a tag
     Route::get('detail-tags/{id}', 'TagsController@show');
         // show list news of tag
     Route::get('list-news/{id}', 'TagsController@listNews')->name('news-tags');
         // update a tag
-    Route::put('tags/{id}', 'TagsController@update');
+    Route::patch('tags/{id}', 'TagsController@update')->name('update-tag');
         // create a tag
-    Route::post('tags', 'TagsController@store');
+    Route::post('tags', 'TagsController@store')->name('create-new-tag');
         // delete a tag
-    Route::delete('tags/{id}', 'TagsController@destroy');
+    Route::delete('tags/{id}', 'TagsController@destroy')->name('delete-tag');
+
+    // Route::get('tag-edit/{$id}', 'TagsController@edit')->name('edit-tags');
+
+    Route::get('create-tag', 'TagsController@create')->name('create-tag');
+
+    Route::get('tag-edit/{id}', 'TagsController@edit')->name('edit-tags');

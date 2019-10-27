@@ -25,7 +25,7 @@ class CreateNewsTable extends Migration
             $table->mediumText('content');
             $table->string('author');
             $table->unsignedBigInteger('tag_id');
-            $table->foreign('tag_id')->references('id')->on('tags');
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
             // $table->string('comment');
             // $table->string('related_articles');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));

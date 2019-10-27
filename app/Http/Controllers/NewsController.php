@@ -55,10 +55,10 @@ class NewsController extends Controller
             $news = News::find($id);
             // return dd($news);
             $cate_id = $news->cate_id;
-
+            
             $cate1 = Categories::all();
             $tag1 = Tags::all();
-             
+            
             $comment = Comments::all()->where('news_id', $id);
             
             
@@ -70,7 +70,7 @@ class NewsController extends Controller
             $tags =News::find($id)->tags()->get();
             
             $cat = $news->cate_id;
-
+            
             $categories = Categories::find($cat)->cate_name;
             
             return view ('detail',compact('news', 'comment', 'categories','tags', 'relate_news', 'cate1', 'tag1'));
@@ -91,21 +91,30 @@ class NewsController extends Controller
             // $related = Categories::
         }
         
-        
+        public function edit($id){
+            $cate1 = Categories::all('id', 'cate_name');
+            $tag1 = Tags::all();
+            $news = News::all()->where('id', $id);
+            // $cate1 = Categories::all();
+            // $tag1 =  Tags::all();
+            // return dd($news);
+            return view('editNews', compact('cate1', 'tag1', 'news'));
+        }
         //update detail of a news
         public function update(Request $request, $id)
         {
             $news = News::find($id);
             $news->title = $request->input('title');
+            $news->cate_id = $request->input('cate_id');
             $news->short_intro = $request->input('short_intro');
-            $news->short_intro = $request->input('file_name');
+            // $news->short_intro = $request->input('file_name');
             $news->content = $request->input('content');
             $news->author= $request->input('author');
             // $news->comment= $request->input('comment');
-            $news->tag = $request->input('tag');
-            $news->related_articles = $request->input('related_articles');
+            $news->tag_id = $request->input('tag_id');
+            // $news->related_articles = $request->input('related_articles');
             $news->save();
-            return News::all();
+            return redirect()->route('news');
             
         }
         
@@ -114,9 +123,15 @@ class NewsController extends Controller
         //delete a news
         public function destroy($id)
         {
-            $news = News::find($id);
-            $news->delete();
-            return News::all();
+            $new = News::find($id);
+            $new->delete();
+            // $news = News::all();
+            // $cate1 = Categories::all();
+            // $tag1 =  Tags::all();
+            // return $news;
+            // return dd($new);
+            return redirect()->route('news');
+            // return view ('news',compact('news', 'cate1', 'tag1'));
         }
     }
     
