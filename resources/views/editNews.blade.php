@@ -52,7 +52,7 @@
                     
                     <div class="form-group">
                         <label  class="placeholder"><b>Content:</b></label>
-                        <textarea name="content" required class="form-control" placeholder="Content of this blog">{{$new->content}}</textarea>
+                        <textarea name="content" required class="form-control" placeholder="Content of this blog" id = editor1>{{$new->content}}</textarea>
                     </div>
                     
                     <div class="form-group">

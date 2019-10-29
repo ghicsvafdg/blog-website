@@ -19,7 +19,7 @@
                 <h5><strong>{{$news->short_intro}}</strong></h5>
                 <br>
                 <p>
-                    {{$news->content}}
+                    {!!$news->content!!}
                 </p>
                 
                 <p style="text-align:center"><b>END OF BLOG (^-^) </b>

@@ -15,6 +15,8 @@
             height: auto;
         }
     </style>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script> CKEDITOR.replace('editor1'); </script>
 </head>
 <body>
     {{-- navbar --}}
@@ -95,4 +97,6 @@
             </div>
         </footer>
     </body>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script> CKEDITOR.replace('editor1'); </script>
     </html>
